@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="login-container" class="container">
+            <h1>Đăng nhập</h1>
+            <div class="input-container">
+                <input type="text" id="username" placeholder="Tài khoản" />
+                <input type="password" id="password" placeholder="Mật khẩu" />
+                <button id="loginBtn">Đăng nhập</button>
+                <p id="errorMsg" style="color: red"></p>
+            </div>
+        </div>
+
+        <div id="todo-container" class="container" style="display: none">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 style="flex: 1; text-align: center;">Todo List</h1>
+                <button id="viewHistoryBtn" style="margin-left: auto;">Xem lịch sử</button> <!-- Button aligned to the right -->
+            </div>
+            <div class="input-container">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Thêm công việc mới..."
+                    maxlength="50"
+                />
+
+                <button id="addTaskBtn">Thêm</button>
+            </div>
+            <div class="tasks-container">
+                <h2>Công việc hôm nay</h2>
+                <ul id="taskList"></ul>
+            </div>
+            <div class="stats-container">
+                <h2>Thống kê</h2>
+                <div class="stats">
+                    <div>
+                        <h3>Hôm nay</h3>
+                        <canvas id="dayChart"></canvas>
+                    </div>
+                    <div>
+                        <h3>Tuần này</h3>
+                        <canvas id="weekChart"></canvas>
+                    </div>
+                    <div>
+                        <h3>Tháng này</h3>
+                        <canvas id="monthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="history-container" class="container" style="display: none">
+            <h1>Lịch sử Todo List</h1>
+            <table id="historyTable">
+                <thead>
+                    <tr>
+                        <th>Số thứ tự</th>
+                        <th>Ngày</th>
+                        <th>Nội dung</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th> <!-- Add this column for the delete button -->
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
+            
+            <div id="pagination">
+                <button id="prevPageBtn">Trang trước</button>
+                <button id="nextPageBtn">Trang sau</button>
+            </div>
+            <button id="backToTodoListBtn">Quay lại Todo List</button>
+            <!-- Add this button -->
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+        <script type="module" src="script.js"></script>
+    </body>
+</html>
